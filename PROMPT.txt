@@ -1,6 +1,0 @@
-═══════════════════════════════════════════════════════════════════════
-           F1 ORACLE — ANTIGRAVITY BUILD PROMPT
-           2026 AI RACE PREDICTOR WEBSITE
-═══════════════════════════════════════════════════════════════════════
-
-(This file acts as a placeholder for the original prompt that generated this codebase)
