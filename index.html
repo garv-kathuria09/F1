@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APEX AI — 2026 AI Race Predictor</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scanline Overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <div class="f1-badge">F1</div>
+      <div class="header-title">APEX AI</div>
+      <div class="header-subtitle">2026 AI Race Predictor</div>
+    </div>
+    <nav class="header-nav">
+      <a href="#next-race">Next Race</a>
+      <a href="#drivers">Drivers</a>
+      <a href="#predictor">AI Predictor</a>
+      <a href="#results">Results</a>
+    </nav>
+    <div class="header-right">
+      <div class="live-indicator"></div>
+      <div class="live-text mono">SEASON LIVE</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content fade-in">
+      <div class="hero-subtitle">ROUND 3 — NEXT RACE</div>
+      <h1 class="hero-title bebas">JAPANESE<br>GRAND PRIX</h1>
+      
+      <div class="hero-meta mono">
+        <div class="meta-item">
+          <span class="meta-label">CIRCUIT</span>
+          <span class="meta-val">SUZUKA INT. RACING COURSE</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">DATE</span>
+          <span class="meta-val">27-29 MAR 2026</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">COUNTRY</span>
+          <span class="meta-val">JAPAN 🇯🇵</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">LAPS</span>
+          <span class="meta-val">53</span>
+        </div>
+      </div>
+      
+      <a href="#predictor" class="cta-button bebas">RUN AI PREDICTION →</a>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown fade-in">
+      <div class="cd-box">
+        <span class="cd-num" id="cd-days">--</span>
+        <span class="cd-label">DAYS</span>
+      </div>
+      <div class="cd-box"><span class="cd-num">:</span></div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-hours">--</span>
+        <span class="cd-label">HOURS</span>
+      </div>
+      <div class="cd-box"><span class="cd-num">:</span></div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-mins">--</span>
+        <span class="cd-label">MINS</span>
+      </div>
+      <div class="cd-box"><span class="cd-num">:</span></div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-secs">--</span>
+        <span class="cd-label">SECS</span>
+      </div>
+    </div>
+
+    <!-- F1 Lights -->
+    <div class="f1-lights fade-in" id="f1-lights" data-state="red">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+  </section>
+
+  <!-- Watch Live Stream Ticker -->
+  <a href="https://f1tv.formula1.com/" target="_blank" class="ticker-wrap" style="text-decoration: none; cursor: pointer;">
+    <div class="ticker-label bebas">F1 TV PRO</div>
+    <div class="ticker mono">
+      <span class="ticker-item">🔴 STREAM FULL RACES LIVE AND EXCLUSIVE ONBOARDS ON F1 TV PRO &nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="ticker-item">🔴 STREAM FULL RACES LIVE AND EXCLUSIVE ONBOARDS ON F1 TV PRO &nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="ticker-item">🔴 STREAM FULL RACES LIVE AND EXCLUSIVE ONBOARDS ON F1 TV PRO &nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span class="ticker-item">🔴 STREAM FULL RACES LIVE AND EXCLUSIVE ONBOARDS ON F1 TV PRO &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </a>
+
+  <!-- Race Results Section -->
+  <section id="results">
+    <h2 class="section-title bebas fade-in">RECENT RACE — CHINESE GP (RD 2)</h2>
+    <div class="champ-table-wrap fade-in">
+      <table class="champ-table" id="recent-race-table">
+        <thead>
+          <tr>
+            <th>POS</th>
+            <th>DRIVER</th>
+            <th>TEAM</th>
+            <th>TIME / GAP</th>
+          </tr>
+        </thead>
+        <tbody id="recent-race-tbody">
+          <!-- Injected by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Next Race Section -->
+  <section id="next-race">
+    <h2 class="section-title bebas fade-in">JAPANESE GRAND PRIX</h2>
+    <div class="next-race-grid fade-in">
+      <!-- Left Card: Circuit Map & Stats -->
+      <div class="circuit-card">
+        <div class="svg-container">
+          <!-- Stylized Figure-8 Suzuka Map in F1 Red -->
+          <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="var(--f1-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Starting point at start/finish -->
+            <path d="M 50 10 
+                     C 30 10, 10 30, 20 60 
+                     L 30 80 
+                     C 40 90, 60 90, 70 80 
+                     L 85 50 
+                     C 95 30, 80 15, 60 20 
+                     L 40 30 
+                     C 25 35, 20 45, 30 55
+                     L 45 65
+                     C 60 75, 75 60, 65 40
+                     L 55 20
+                     C 52 12, 55 10, 50 10 Z" />
+            
+            <!-- Turn labels -->
+            <circle cx="50" cy="10" r="3" fill="var(--f1-red)" />
+            <text x="50" y="5" fill="#fff" font-family="'Share Tech Mono'" font-size="4" text-anchor="middle">S/F</text>
+            <text x="15" y="65" fill="#fff" font-family="'Share Tech Mono'" font-size="4">Degner</text>
+            <text x="40" y="88" fill="#fff" font-family="'Share Tech Mono'" font-size="4">Spoon</text>
+            <text x="80" y="20" fill="#fff" font-family="'Share Tech Mono'" font-size="4">130R</text>
+          </svg>
+        </div>
+        
+        <div class="circuit-stats mono">
+          <div class="stat-box">Length: 5.807 km</div>
+          <div class="stat-box">Race Distance: 307.471 km</div>
+          <div class="stat-box">Laps: 53</div>
+          <div class="stat-box">Lap Record: 1:30.983 (Hamilton, 2019)</div>
+          <div class="stat-box">Corners: 18</div>
+          <div class="stat-box">DRS Zones: 2</div>
+        </div>
+      </div>
+
+      <!-- Right Card: Schedule & Battles -->
+      <div class="schedule-card">
+        <h3 class="bebas" style="font-size: 2rem; margin-bottom: 20px;">WEEKEND SCHEDULE (IST)</h3>
+        <table class="schedule-table mono">
+          <tr><td>Practice 1</td><td>Fri 27 Mar</td><td>11:30</td></tr>
+          <tr><td>Practice 2</td><td>Fri 27 Mar</td><td>15:00</td></tr>
+          <tr><td>Practice 3</td><td>Sat 28 Mar</td><td>11:30</td></tr>
+          <tr><td>Qualifying</td><td>Sat 28 Mar</td><td>15:00</td></tr>
+          <tr class="race-day"><td>RACE</td><td>Sun 29 Mar</td><td>13:00</td></tr>
+        </table>
+        
+        <div style="margin-bottom: 20px; font-family: 'Share Tech Mono', monospace; color: var(--text-secondary);">
+          <span style="font-size: 1.5rem; color: var(--f1-red);">📍</span> Suzuka International Racing Course, Mie Prefecture, Japan
+          <br>
+          <a href="https://maps.google.com/?q=Suzuka+Circuit" target="_blank" class="map-btn">VIEW MAP</a>
+        </div>
+        
+        <div class="battles">
+          <h4 class="bebas">KEY BATTLES TO WATCH</h4>
+          <ul class="mono">
+            <li>Russell vs Antonelli: Mercedes teammates clash again after 1-2 finishes</li>
+            <li>Hamilton's redemption: Suzuka specialist seeks first Ferrari win</li>
+            <li>Verstappen's comeback: Fastest lap in AUS shows pace is there</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drivers Grid Section -->
+  <section id="drivers">
+    <h2 class="section-title bebas fade-in">THE GRID — 22 DRIVERS · 11 TEAMS</h2>
+    <div class="drivers-container fade-in" id="drivers-container">
+      <!-- Injected by JS -->
+    </div>
+  </section>
+
+  <!-- AI Predictor Section -->
+  <section id="predictor">
+    <h2 class="section-title bebas fade-in">AI RACE PREDICTOR</h2>
+    <p style="margin-bottom: 30px; font-size: 1.2rem; color: var(--text-secondary);" class="fade-in">Powered by Claude AI (claude-sonnet-4-20250514) analyzing 2026 season data, driver forms, and circuit characteristics to simulate the ultimate race outcome.</p>
+    
+    <div class="predictor-container fade-in">
+      <div class="p-controls">
+        <div class="form-group">
+          <label>1. SELECT RACE</label>
+          <select id="race-select" class="mono">
+            <option value="3">🇯🇵 Japanese GP (Suzuka)</option>
+            <option value="6">🇺🇸 Miami GP (Sprint)</option>
+            <option value="8">🇲🇨 Monaco GP</option>
+            <option value="11">🇬🇧 British GP (Silverstone)</option>
+            <option value="14">🇳🇱 Dutch GP (Zandvoort)</option>
+            <option value="15">🇮🇹 Italian GP (Monza)</option>
+            <option value="22">🇦🇪 Abu Dhabi GP (Finale)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>2. ANALYSIS DEPTH</label>
+          <select id="depth-select" class="mono">
+            <option value="quick">Quick Prediction</option>
+            <option value="full">Full Race Simulation</option>
+            <option value="champ">Championship Impact</option>
+          </select>
+        </div>
+        
+        <button class="btn-predict bebas" id="btn-predict">🤖 RUN AI PREDICTION</button>
+      </div>
+      
+      <div class="p-output" id="predictor-output">
+        <div class="placeholder-state" id="pred-placeholder">
+          <div style="font-size: 4rem; margin-bottom: 20px;">🏎️💨</div>
+          <h3 class="bebas" style="font-size: 2rem;">AWAITING TELEMETRY...</h3>
+          <p class="mono">Select a race and specify analysis depth to run the Claude AI simulation model.</p>
+        </div>
+        
+        <div class="loading-state" id="pred-loading">
+          <div class="car-animation">🏎️</div>
+          <div class="loading-text">ANALYSING RACE DATA...</div>
+        </div>
+        
+        <div class="result-content" id="pred-result">
+          <!-- Injected via Markdown / Fallback -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drivers' Championship Table -->
+  <section id="championship">
+    <h2 class="section-title bebas fade-in">DRIVERS' CHAMPIONSHIP — AFTER 2 ROUNDS</h2>
+    <div class="champ-table-wrap fade-in">
+      <table class="champ-table" id="champ-table">
+        <thead>
+          <tr>
+            <th>POS</th>
+            <th>DRIVER</th>
+            <th>TEAM</th>
+            <th>R1 🇦🇺 (AUS)</th>
+            <th>R2 🇨🇳 (CHN)</th>
+            <th>TOTAL PTS</th>
+          </tr>
+        </thead>
+        <tbody id="champ-tbody">
+          <!-- Injected by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">
+      <div class="f1-badge" style="font-size: 1rem;">F1</div>
+      <div class="header-title" style="font-size: 1.2rem;">APEX AI</div>
+    </div>
+    <div class="footer-disclaimer">Not affiliated with Formula 1, FOM, or the FIA.</div>
+    <div class="footer-tagline mono" style="color: var(--f1-red);">Built for the fans.</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

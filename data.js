@@ -1,0 +1,67 @@
+const F1_DATA = {
+  teams: {
+    mercedes: { id: 'mercedes', name: 'Mercedes', color: '#00d2be', textColor: '#000' },
+    ferrari: { id: 'ferrari', name: 'Ferrari', color: '#dc0000', textColor: '#fff' },
+    mclaren: { id: 'mclaren', name: 'McLaren', color: '#FF8000', textColor: '#000' },
+    redbull: { id: 'redbull', name: 'Red Bull', color: '#3671C6', textColor: '#fff' },
+    williams: { id: 'williams', name: 'Williams', color: '#37BEDD', textColor: '#000' },
+    alpine: { id: 'alpine', name: 'Alpine', color: '#FF87BC', textColor: '#000' },
+    haas: { id: 'haas', name: 'Haas', color: '#B6BABD', textColor: '#000' },
+    audi: { id: 'audi', name: 'Audi', color: '#B5B6B7', textColor: '#000' },
+    astonmartin: { id: 'astonmartin', name: 'Aston Martin', color: '#358C75', textColor: '#fff' },
+    racingbulls: { id: 'racingbulls', name: 'Racing Bulls', color: '#6692FF', textColor: '#000' },
+    cadillac: { id: 'cadillac', name: 'Cadillac', color: '#FF6B35', textColor: '#000' }
+  },
+  drivers: [
+    { pos: 1, name: 'George Russell', number: 63, team: 'mercedes', country: '🇬🇧', pts: 51, r1: 25, r2: 26 },
+    { pos: 2, name: 'Kimi Antonelli', number: 12, team: 'mercedes', country: '🇮🇹', pts: 47, r1: 18, r2: 29 },
+    { pos: 3, name: 'Charles Leclerc', number: 16, team: 'ferrari', country: '🇲🇨', pts: 34, r1: 15, r2: 19 },
+    { pos: 4, name: 'Lewis Hamilton', number: 44, team: 'ferrari', country: '🇬🇧', pts: 33, r1: 12, r2: 21 },
+    { pos: 5, name: 'Lando Norris', number: 4, team: 'mclaren', country: '🇬🇧', pts: 24, r1: 10, r2: 14 },
+    { pos: 6, name: 'Oscar Piastri', number: 81, team: 'mclaren', country: '🇦🇺', pts: 18, r1: 8, r2: 10 },
+    { pos: 7, name: 'Max Verstappen', number: 1, team: 'redbull', country: '🇳🇱', pts: 12, r1: 6, r2: 6 },
+    { pos: 8, name: 'Isack Hadjar', number: 6, team: 'redbull', country: '🇫🇷', pts: 10, r1: 4, r2: 6 },
+    { pos: 9, name: 'Carlos Sainz', number: 55, team: 'williams', country: '🇪🇸', pts: 8, r1: 6, r2: 2 },
+    { pos: 10, name: 'Alexander Albon', number: 23, team: 'williams', country: '🇹🇭', pts: 6, r1: 4, r2: 2 },
+    { pos: 11, name: 'Franco Colapinto', number: 43, team: 'alpine', country: '🇦🇷', pts: 4, r1: 2, r2: 2 },
+    { pos: 12, name: 'Esteban Ocon', number: 31, team: 'haas', country: '🇫🇷', pts: 4, r1: 2, r2: 2 },
+    { pos: 13, name: 'Pierre Gasly', number: 10, team: 'alpine', country: '🇫🇷', pts: 3, r1: 1, r2: 2 },
+    { pos: 14, name: 'Oliver Bearman', number: 87, team: 'haas', country: '🇬🇧', pts: 2, r1: 1, r2: 1 },
+    { pos: 15, name: 'Liam Lawson', number: 30, team: 'racingbulls', country: '🇳🇿', pts: 2, r1: 2, r2: 0 },
+    { pos: 16, name: 'Arvid Lindblad', number: 7, team: 'racingbulls', country: '🇬🇧', pts: 1, r1: 1, r2: 0 },
+    { pos: 17, name: 'Nico Hulkenberg', number: 27, team: 'audi', country: '🇩🇪', pts: 0, r1: 0, r2: 0 },
+    { pos: 18, name: 'Gabriel Bortoleto', number: 5, team: 'audi', country: '🇧🇷', pts: 0, r1: 0, r2: 0 },
+    { pos: 19, name: 'Fernando Alonso', number: 14, team: 'astonmartin', country: '🇪🇸', pts: 0, r1: 0, r2: 0 },
+    { pos: 20, name: 'Lance Stroll', number: 18, team: 'astonmartin', country: '🇨🇦', pts: 0, r1: 0, r2: 0 },
+    { pos: 21, name: 'Sergio Perez', number: 11, team: 'cadillac', country: '🇲🇽', pts: 0, r1: 0, r2: 0 },
+    { pos: 22, name: 'Valtteri Bottas', number: 77, team: 'cadillac', country: '🇫🇮', pts: 0, r1: 0, r2: 0 },
+  ],
+  calendar: [
+    { round: 1, name: 'Australian GP', location: 'Albert Park, Melbourne', date: '6-8 Mar', flags: '🇦🇺' },
+    { round: 2, name: 'Chinese GP', location: 'Shanghai', date: '13-15 Mar', flags: '🇨🇳' },
+    { round: 3, name: 'Japanese GP', location: 'Suzuka', date: '27-29 Mar', flags: '🇯🇵' },
+    { round: 4, name: 'Bahrain GP', location: 'Bahrain International', date: '10-12 Apr', status: 'CANCELLED' },
+    { round: 5, name: 'Saudi Arabian GP', location: 'Jeddah Corniche', date: '17-19 Apr', status: 'CANCELLED' },
+    { round: 6, name: 'Miami GP', location: 'Miami Autodrome', date: '1-3 May', flags: '🇺🇸', sprint: true },
+    { round: 7, name: 'Canadian GP', location: 'Circuit Gilles Villeneuve', date: '22-24 May', flags: '🇨🇦', sprint: true },
+    { round: 8, name: 'Monaco GP', location: 'Circuit de Monaco', date: '5-7 Jun', flags: '🇲🇨' },
+    { round: 9, name: 'Spanish GP', location: 'Barcelona-Catalunya', date: '12-14 Jun', flags: '🇪🇸' },
+    { round: 10, name: 'Austrian GP', location: 'Red Bull Ring', date: '26-28 Jun', flags: '🇦🇹' },
+    { round: 11, name: 'British GP', location: 'Silverstone', date: '3-5 Jul', flags: '🇬🇧', sprint: true },
+    { round: 12, name: 'Belgian GP', location: 'Spa-Francorchamps', date: '17-19 Jul', flags: '🇧🇪' },
+    { round: 13, name: 'Hungarian GP', location: 'Hungaroring', date: '24-26 Jul', flags: '🇭🇺' },
+    { round: 14, name: 'Dutch GP', location: 'Zandvoort', date: '21-23 Aug', flags: '🇳🇱', sprint: true },
+    { round: 15, name: 'Italian GP', location: 'Monza', date: '4-6 Sep', flags: '🇮🇹' },
+    { round: 16, name: 'Azerbaijan GP', location: 'Baku City Circuit', date: '11-13 Sep', flags: '🇦🇿' },
+    { round: 17, name: 'Singapore GP', location: 'Marina Bay Street', date: '24-26 Sep', flags: '🇸🇬', sprint: true },
+    { round: 18, name: 'US GP', location: 'Circuit of the Americas', date: '9-11 Oct', flags: '🇺🇸' },
+    { round: 19, name: 'Mexico City GP', location: 'Hermanos Rodriguez', date: '23-25 Oct', flags: '🇲🇽' },
+    { round: 20, name: 'São Paulo GP', location: 'Interlagos', date: '30 Oct-1 Nov', flags: '🇧🇷' },
+    { round: 21, name: 'Las Vegas GP', location: 'Las Vegas Street', date: '19-21 Nov', flags: '🇺🇸' },
+    { round: 22, name: 'Abu Dhabi GP', location: 'Yas Marina Circuit', date: '4-6 Dec', flags: '🇦🇪' }
+  ]
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = F1_DATA;
+}
